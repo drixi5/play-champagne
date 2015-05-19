@@ -8,8 +8,7 @@ scalaVersion := "2.11.1"
 
 resolvers += "Typesafe repository" at "http://repo.typesafe.com/typesafe/releases/"
 
-libraryDependencies ++= Seq(
-	
+libraryDependencies ++= Seq(	
   "mysql" % "mysql-connector-java" % "5.1.18",
   "org.apache.commons" % "commons-email" % "1.3",
   "org.mindrot" % "jbcrypt" % "0.3m",
