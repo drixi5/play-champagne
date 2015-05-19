@@ -7,6 +7,7 @@ import play.data.validation.Constraints;
 import play.db.ebean.Model;
 
 import javax.persistence.Column;
+import javax.persistence.ManyToOne;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.util.Date;
@@ -28,8 +29,11 @@ public class User extends Model {
 
     @Constraints.Required
     @Formats.NonEmpty
-    @Column(unique = true)
-    public String fullname;
+    public String firstname;
+    
+    @Constraints.Required
+    @Formats.NonEmpty
+    public String lastname;
 
     public String confirmationToken;
 
@@ -42,6 +46,9 @@ public class User extends Model {
 
     @Formats.NonEmpty
     public Boolean validated = false;
+    
+    @ManyToOne
+    public TypeUser typeEmployee;
 
     // -- Queries (long id, user.class)
     public static Model.Finder<Long, User> find = new Model.Finder<Long, User>(Long.class, User.class);

@@ -27,7 +27,8 @@ public class ModelProduct extends Model {
 	@Id
 	public Long id;
 
-    public String name;
+    @Column(unique = true)
+	public String name;
     
     @ManyToOne
     public TypeProduct typeProduct ;

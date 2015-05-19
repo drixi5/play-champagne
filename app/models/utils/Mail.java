@@ -2,8 +2,8 @@ package models.utils;
 
 //import com.typesafe.plugin.MailerAPI;
 import play.libs.mailer.MailerPlugin;
-import play.libs.mailer.Email;
-import play.api.libs.mailer.*;
+import play.libs.mailer.*;
+//import play.api.libs.mailer.*;
 import play.Configuration;
 import play.Logger;
 import play.libs.Akka;
