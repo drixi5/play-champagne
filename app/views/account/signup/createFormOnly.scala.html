@@ -23,8 +23,14 @@
 		            'class -> "form-control"
 		        )
 		        @inputText(
-		            signupForm("fullname"),
-		            'placeholder -> Messages("fullname"),
+		            signupForm("firstname"),
+		            'placeholder -> Messages("firstname"),
+		            '_label -> null,
+		            'class -> "form-control"
+		        )
+		        @inputText(
+		            signupForm("lastname"),
+		            'placeholder -> Messages("lastname"),
 		            '_label -> null,
 		            'class -> "form-control"
 		        )

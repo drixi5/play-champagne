@@ -9,6 +9,7 @@ import play.i18n.Messages;
 import play.mvc.Controller;
 import play.mvc.Result;
 import views.html.index;
+import views.html.addEmployee;
 
 import static play.data.Form.form;
 
@@ -45,6 +46,10 @@ public class Application extends Controller {
         }
 
         return ok(index.render(form(Register.class), form(Login.class)));
+    }
+    
+    public static Result addEmployee() {
+        return ok(addEmployee.render(User.findByEmail(request().username())));
     }
 
     /**
@@ -86,7 +91,10 @@ public class Application extends Controller {
         public String email;
 
         @Constraints.Required
-        public String fullname;
+        public String firstname;
+
+        @Constraints.Required
+        public String lastname;
 
         @Constraints.Required
         public String inputPassword;
@@ -101,8 +109,12 @@ public class Application extends Controller {
                 return "Email is required";
             }
 
-            if (isBlank(fullname)) {
-                return "Full name is required";
+            if (isBlank(firstname)) {
+                return "First name is required";
+            }
+            
+            if (isBlank(lastname)) {
+                return "Last name is required";
             }
 
             if (isBlank(inputPassword)) {

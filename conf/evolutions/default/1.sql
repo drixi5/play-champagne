@@ -13,6 +13,7 @@ create table model_product (
   id                        bigint auto_increment not null,
   name                      varchar(255),
   type_product_id           bigint,
+  constraint uq_model_product_name unique (name),
   constraint pk_model_product primary key (id))
 ;
 
@@ -53,6 +54,12 @@ create table type_product (
   constraint pk_type_product primary key (id))
 ;
 
+create table type_user (
+  id                        bigint auto_increment not null,
+  name                      varchar(255),
+  constraint pk_type_user primary key (id))
+;
+
 create table unit (
   id                        bigint auto_increment not null,
   name                      varchar(255),
@@ -62,13 +69,14 @@ create table unit (
 create table user (
   id                        bigint auto_increment not null,
   email                     varchar(255),
-  fullname                  varchar(255),
+  firstname                 varchar(255),
+  lastname                  varchar(255),
   confirmation_token        varchar(255),
   password_hash             varchar(255),
   date_creation             datetime,
   validated                 tinyint(1) default 0,
+  type_employee_id          bigint,
   constraint uq_user_email unique (email),
-  constraint uq_user_fullname unique (fullname),
   constraint pk_user primary key (id))
 ;
 
@@ -78,6 +86,8 @@ alter table stock add constraint fk_stock_product_2 foreign key (product_id) ref
 create index ix_stock_product_2 on stock (product_id);
 alter table stock add constraint fk_stock_unit_3 foreign key (unit_id) references unit (id) on delete restrict on update restrict;
 create index ix_stock_unit_3 on stock (unit_id);
+alter table user add constraint fk_user_typeEmployee_4 foreign key (type_employee_id) references type_user (id) on delete restrict on update restrict;
+create index ix_user_typeEmployee_4 on user (type_employee_id);
 
 
 
@@ -96,6 +106,8 @@ drop table stores;
 drop table token;
 
 drop table type_product;
+
+drop table type_user;
 
 drop table unit;
 

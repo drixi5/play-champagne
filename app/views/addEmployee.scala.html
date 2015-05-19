@@ -1,4 +1,10 @@
-@(user: User) @main(user) {
+@import helper._
+    
+	@implicitFieldConstructor = @{
+        FieldConstructor(twitterBootstrapInput.render)
+    }
+
+@(user: User, employeeForm: Form[Application.Register]) @main(user) {
 
 <div class="wrapper wrapper-content">
 	<div class="container">
@@ -9,8 +15,45 @@
 						<h3>Ajout d'un employee</h3>
 					</div>
 					<div class="ibox-content">
-
-						<form class="form-horizontal" method="post">
+					@form(controllers.account.routes.Signup.save()) {
+							<fieldset>
+							
+							
+							@inputText(
+					            signupForm("email"),
+					            'placeholder -> Messages("email"),
+					            '_label -> null,
+					            'class -> "form-control"
+					        )
+					        @inputText(
+					            signupForm("firstname"),
+					            'placeholder -> Messages("firstname"),
+					            '_label -> null,
+					            'class -> "form-control"
+					        )
+					        @inputText(
+					            signupForm("lastname"),
+					            'placeholder -> Messages("lastname"),
+					            '_label -> null,
+					            'class -> "form-control"
+					        )
+					        @inputPassword(
+					            signupForm("inputPassword"),
+					            '_label -> null,
+					            'placeholder -> Messages("password"),
+					            'class -> "form-control"
+					        )   		    
+							
+							</fieldset>
+							
+							<div class="form-actions">
+						        <div class="form-group submit">
+				            		<button type="submit" class="btn btn-primary"><i class="fa"></i> Ajouter
+				          			</button>
+				          		</div>
+						    </div>
+							}
+						<!-- form class="form-horizontal" action="" method="post">
 						  <div class="form-group">
 							  <label class="col-sm-2 control-label">Nom</label>
 							  <div class="col-sm-10">
@@ -24,35 +67,28 @@
 							  </div>
 						  </div><br/>
 						  <div class="form-group">
-							  <label class="col-sm-2 control-label">Adresse 1</label>
+							  <label class="col-sm-2 control-label">Adresse Mail</label>
 							  <div class="col-sm-10">
-							    <input class="form-control" type="text" name="address1">
+							    <input class="form-control" type="email" name="email">
 							  </div>
 						  </div><br/>
 						  <div class="form-group">
-							  <label class="col-sm-2 control-label">Adresse 2</label>
+							  <label class="col-sm-2 control-label">Statut</label>
 							  <div class="col-sm-10">
-							    <input class="form-control" type="text" name="address2">
+							    <select class="form-control" name="type_employee_id">
+								  <option value="1"> Cuisinier</option>
+								  <option value="2"> Serveur</option>
+								</select>
 							  </div>
-						  </div><br/>
-						  <div class="form-group">
-							  <label class="col-sm-2 control-label">Code Postal</label>
-							  <div class="col-sm-4">
-							    <input class="form-control" type="text" name="post_code">
-							  </div>
-							  <label class="col-sm-2 control-label">Ville</label>
-							  <div class="col-sm-4">
-							    <input class="form-control" type="text" name="city">
-							  </div>
-						    </div>
+						  </div>
 							
-							<div class="hr-line-dashed"></div>
+						  <div class="hr-line-dashed"></div>
 
 							<div class="button text-center">
 								<button type="button" class="btn btn-white btn-lg active">Continuer</button>
-								<button type="button" class="btn btn-primary btn-lg active">Valider</button>
+								<button type="submit" class="btn btn-primary btn-lg active">Valider</button>
 							</div>
-						</form>
+						</form -->
 
 					</div>
 				</div>
