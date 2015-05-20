@@ -5,6 +5,8 @@
 # Home page
 GET     /                           controllers.Application.index()
 GET     /dashboard                  controllers.Dashboard.index()
+GET		/addProductStock			controllers.Dashboard.viewAddPStock()
+POST 	/dashboard					controllers.Dashboard.addProductStock()
 
 POST    /login                      controllers.Application.authenticate()
 GET     /logout                     controllers.Application.logout()
@@ -31,6 +33,41 @@ GET     /reset/:token               controllers.account.Reset.reset(token:String
 POST    /reset/:token               controllers.account.Reset.runReset(token:String)
 
 GET     /email/:token               controllers.account.settings.Email.validateEmail(token:String)
+
+# Stores
+GET     /store                  	controllers.Store.index()
+GET    /store/addStore             controllers.Store.viewAddStore()
+POST   /store						controllers.Store.addStore()
+GET    /store/editStore				controllers.Store.editStore(token:Long)
+GET    /store/deleteStore			controllers.Store.deleteStore(token:Long)
+
+#POST    /store/addAdmin			controllers.Store.addStore()
+#POST    /store						controllers.Store.addAdmin()
+
+# Supplier
+GET     /supplier                  	controllers.Supplier.index()
+GET		/supplier/addSupplier		controllers.Supplier.addSupplier()
+GET		/supplier/modifySupplier		controllers.Supplier.modifySupplier()
+GET		/supplier/deleteSupplier		controllers.Supplier.deleteSupplier()
+
+
+# Orders
+GET     /ordersProgress             controllers.OrderInProgress.index()
+GET     /ordersValid                controllers.OrderValid.index()
+GET     /ordersHandle               controllers.OrderToHandle.index()
+GET     /ordersCommand			    controllers.OrderCommand.index()
+
+
+# Product
+GET     /product                  	controllers.Product.index()
+GET     /product/addProduct         controllers.Product.addProduct()
+POST 	/product					controllers.Product.saveProduct()
+GET		/products					controllers.Product.getProducts()
+
+#Employee
+GET     /employee                  	controllers.Employee.index()
+#POST    /employee					controllers.Employee.save()
+GET     /employee/addEmployee       controllers.Employee.addEmployee()
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)

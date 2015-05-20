@@ -24,13 +24,13 @@ import static play.data.Form.form;
 public class Product extends Controller {
 
 	public static Result index() {
-        return ok(product.render(User.findByEmail(request().username()),Products.find.orderBy("id asc").findList()));
+        return ok(product.render(User.findByEmail(request().username())));
     }
 	
 	final static Form<Products> productForm = form(Products.class);
     
     public static Result addProduct(){
-    	return ok(addProduct.render(User.findByEmail(request().username()), productForm));
+    	return ok(addProduct.render(User.findByEmail(request().username())));
     }
 	
 	public static Result saveProduct(){

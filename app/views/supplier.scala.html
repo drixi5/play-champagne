@@ -27,6 +27,8 @@
 		            </tr>
 		            </thead>
 		            <tbody>
+			           
+			           
 			            <tr>
 			              <td>La plantation</td>
 			              <td>info@@laplantation.com</td>
@@ -34,10 +36,18 @@
 			              <td>36000</td>
 			              <td>Grenoble</td>
 			              <td>
-			              	<button class="btn btn-custom btn-s" title="Modifier"><i class="fa fa-cog"></i></button>
-                    	  	<button class="btn btn-custom btn-s" title="Supprimer"><i class="fa fa-trash-o"></i></button>
+			              
+			             	<a class="add-link" href="@routes.Supplier.modifySupplier()">
+     						<button class="btn btn-custom btn-s" title="Modifier"><i class="fa fa-cog"></i></button> 	  
+     			 			</a>
+			              	<a class="add-link" href="@routes.Supplier.deleteSupplier()">
+			              	<button class="btn btn-custom btn-s" title="Supprimer"><i class="fa fa-trash-o"></i></button>
+			              	</a>
                     	  </td>
 			            </tr>
+			            
+			            
+			            
 		            </tbody>
 		          </table>
 		        </div>

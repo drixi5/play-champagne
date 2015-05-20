@@ -37,9 +37,16 @@
 			              <td>@stores.codePostal</td>
 			              <td> @stores.ville</td>		             
 			              <td>    
-			              	<button class="btn btn-custom btn-s" title="Modifier"><i class="fa fa-cog"></i></button>
-                    	  	<button class="btn btn-custom btn-s" title="Supprimer"><i class="fa fa-trash-o"></i></button>
-                    	  </td>
+			              
+			              	<a class="add-link" href="@routes.Store.editStore(stores.id)">
+			              		<button class="btn btn-custom btn-s" title="Modifier"><i class="fa fa-cog"></i></button> 	  
+     			 			</a>
+			              	<a class="add-link" href="@routes.Store.deleteStore(stores.id)">
+			              		<button class="btn btn-custom btn-s" title="Supprimer"><i class="fa fa-trash-o"></i></button>
+			              	</a>
+			              	
+			              	
+			              </td>
 			            </tr>
  						}			            
 		            </tbody>

@@ -1,9 +1,7 @@
 
 @import helper._
 
-@(user: User, form: Form[models.Stores]) @main(user) {
-
-
+@(user: User, form: Form[models.Stores], store : java.util.List[models.Stores]) @main(user) {
 
 <div class="wrapper wrapper-content">
       <div class="container">
@@ -11,9 +9,9 @@
 		  <div class="col-lg-12">
 		    <div class="ibox float-e-margins">
 		      <div class="ibox-title">
-		        <h3>Ajouter un restaurant</h3>
+		        <h3>EDIT un restaurant</h3>
 		      </div>
-				 @helper.form(action=routes.Store.addStore, 'class -> "form-horizontal ") { 
+				 @helper.form(action=routes.Store.editStore(1), 'class -> "form-horizontal ") { 
 
 				<div class="ibox-content">
 		
@@ -30,7 +28,7 @@
 						<label class="col-sm-2 control-label">Nom du restaurant</label>
 						<div class="col-sm-10">
 						
-						  <input class="form-control" type="text" name="name" >
+						  <input class="form-control" type="text" name="name" value="test">
 						
 						</div>
 						</div><br/>	

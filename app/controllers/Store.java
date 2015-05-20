@@ -8,6 +8,7 @@ import play.mvc.*;
 import play.data.Form;
 import views.html.store;
 import views.html.addStore;
+import views.html.editStore;
 import views.html.addAdmin;
 import static play.data.Form.form;
 
@@ -41,6 +42,32 @@ public class Store extends Controller {
 			 return index();
 		 }
 	 } 	 
+	 
+
+     public static Result editStore(Long id)  {
+        Form<Stores> form = storeForm.bindFromRequest();
+        Stores store = Stores.find.byId(id);
+
+       if(form.hasErrors())  {
+           
+    	   return badRequest(editStore.render(User.findByEmail(request().username()),form, Stores.find.orderBy("id asc").findList()));
+       } else {
+           store = form.get();
+           store.update(id);
+           return index();
+       }
+   }
+
+   public static Result deleteStore(Long id)  {
+       Stores store = Stores.find.byId(id);
+
+       if(store == null)  {
+           return badRequest("Store not found");
+       } else  {
+           store.delete();
+           return index();
+       }
+   }
 		 
 /* A voir avec Xav au niveau du model.user ! 	 
 	 public static Result addAdmin(){

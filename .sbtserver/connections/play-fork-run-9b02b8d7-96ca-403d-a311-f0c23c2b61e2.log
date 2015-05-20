@@ -1,0 +1,18 @@
+New log file opened at Wed May 06 11:56:32 CEST 2015 by 5412@NNZ_ASUS
+Sending msg to client play-fork-run-9b02b8d7-96ca-403d-a311-f0c23c2b61e2: DetachedLogEvent(LogMessage(debug,sbt server socket logs are in: C:\Users\NNZ\play_project\project-champagne\.sbtserver\connections\master.log))
+Sending msg to client play-fork-run-9b02b8d7-96ca-403d-a311-f0c23c2b61e2: DetachedLogEvent(LogMessage(debug,sbt client logs are in: C:\Users\NNZ\play_project\project-champagne\.sbtserver\connections\play-fork-run-9b02b8d7-96ca-403d-a311-f0c23c2b61e2.log))
+Sending msg to client play-fork-run-9b02b8d7-96ca-403d-a311-f0c23c2b61e2: DetachedLogEvent(LogMessage(debug,sbt general server logs are in: C:\Users\NNZ\play_project\project-champagne\.sbtserver\master.log))
+Reading next message from client.
+Got request: ListenToEvents()
+Reading next message from client.
+Sending msg to client play-fork-run-9b02b8d7-96ca-403d-a311-f0c23c2b61e2: (3,ReceivedResponse())
+Got request: UnlistenToEvents()
+Reading next message from client.
+Sending msg to client play-fork-run-9b02b8d7-96ca-403d-a311-f0c23c2b61e2: (4,ReceivedResponse())
+Got request: ListenToValue(AttributeKey[play.forkrun.protocol.ForkConfig]("playForkConfig") in Scope(Build: file:/C:/Users/NNZ/play_project/project-champagne/, , Project: ProjectReference(file:/C:/Users/NNZ/play_project/project-champagne/,root)))
+Reading next message from client.
+Client play-fork-run-9b02b8d7-96ca-403d-a311-f0c23c2b61e2 closed, java.net.SocketException: Software caused connection abort: recv failed, shutting down
+Stopping client.
+Client play-fork-run-9b02b8d7-96ca-403d-a311-f0c23c2b61e2 thread exiting.
+Dropping message (5,ReceivedResponse()) to dead client play-fork-run-9b02b8d7-96ca-403d-a311-f0c23c2b61e2
+Dropping message (0,ReceivedResponse()) to dead client play-fork-run-9b02b8d7-96ca-403d-a311-f0c23c2b61e2
